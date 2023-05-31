@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bank.Model
+namespace Bank.Model.User
 {
     public static class DisplayUI
     {
@@ -21,6 +21,16 @@ namespace Bank.Model
         public static void AccountType()
         {
             Console.WriteLine(AppMessages.AccountMessage);
+        }
+
+        public static void AppMenu()
+        {
+            Console.WriteLine(AppMessages.AppMessage);
+        }
+
+        public static void ExitMessage()
+        {
+            Console.WriteLine(AppMessages.ExitMessage);
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bank.Model.Common;
+using Bank.Model.User;
+using System;
 
 namespace Bank.Model
 {

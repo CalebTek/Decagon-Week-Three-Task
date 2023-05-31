@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Bank.Model.Common;
+using System.Collections.Generic;
+
 
 namespace Bank.Model
 {

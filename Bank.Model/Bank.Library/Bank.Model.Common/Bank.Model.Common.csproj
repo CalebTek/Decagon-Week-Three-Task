@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84FC5FD1-B41E-4D0C-9E83-A0DA48BAF8A5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Bank.Model</RootNamespace>
-    <AssemblyName>Bank.Model</AssemblyName>
+    <ProjectGuid>{35443741-1199-44CD-B423-D3805F1B12DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bank.Model.Common</RootNamespace>
+    <AssemblyName>Bank.Model.Common</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bank.cs" />
-    <Compile Include="Depositor.cs" />
-    <Compile Include="LoginUser.cs" />
-    <Compile Include="OpenAccount.cs" />
-    <Compile Include="Printer.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Account.cs" />
+    <Compile Include="EntityBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transfers.cs" />
-    <Compile Include="Withdrawal.cs" />
+    <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bank.Library\Bank.Model.Common\Bank.Model.Common.csproj">
-      <Project>{35443741-1199-44cd-b423-d3805f1b12de}</Project>
-      <Name>Bank.Model.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bank.Library\Bank.Model.User\Bank.Model.User.csproj">
+    <ProjectReference Include="..\Bank.Model.User\Bank.Model.User.csproj">
       <Project>{092f1770-1fd8-4e9d-bff3-43cf3897a75c}</Project>
       <Name>Bank.Model.User</Name>
     </ProjectReference>

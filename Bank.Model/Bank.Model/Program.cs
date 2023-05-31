@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bank.Model.User;
+using System;
 
 namespace Bank.Model
 {
@@ -10,6 +8,7 @@ namespace Bank.Model
     {
         public static void Main()
         {
+            DisplayUI.AppMenu();
             Bank bank = new Bank();
 
             int choice;
@@ -17,7 +16,7 @@ namespace Bank.Model
             {
                 DisplayUI.DiplayMenu();
 
-                choice = ConsoleUserInput.GetChoice();
+                choice = ConsoleUserInput.GetChoice(3);
 
                 switch (choice)
                 {
@@ -28,7 +27,7 @@ namespace Bank.Model
                         bank.Login();
                         break;
                     case 3:
-                        Console.WriteLine("Exiting...");
+                        DisplayUI.ExitMessage();
                         break;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");

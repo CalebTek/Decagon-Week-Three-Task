@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bank.Model.Common;
+using Bank.Model.User;
+using System;
 
 namespace Bank.Model
 {
@@ -16,6 +14,8 @@ namespace Bank.Model
             string fullName = ConsoleUserInput.GetFullName();
 
             string password = ConsoleUserInput.GetPassword();
+
+            string email = ConsoleUserInput.GetEmail();
 
             // Generate a random account number
             Random random = new Random();
@@ -35,7 +35,7 @@ namespace Bank.Model
 
             }
 
-            decimal balance = ConsoleUserInput.GetAmount("Enter your initial balance: ");
+            decimal balance = ConsoleUserInput.GetAmount("Enter your initial deposit: ");
 
             Account account = new Account
             {
@@ -43,7 +43,8 @@ namespace Bank.Model
                 AccountNumber = accountNumber,
                 AccountType = accountType,
                 Balance = balance,
-                Password = password
+                Password = password,
+                Email = email,
             };
 
             bank.AddAccount(account);

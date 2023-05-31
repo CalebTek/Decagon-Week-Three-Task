@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Bank.Model
+namespace Bank.Model.Common
 {
-    public class Transaction
+    public class Transaction : EntityBase
     {
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }
-        public decimal Balance { get; set; }
+
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bank.Model.Common;
+using Bank.Model.User;
+using System;
 
 namespace Bank.Model
 {
@@ -57,6 +55,7 @@ namespace Bank.Model
                             break;
                         default:
                             Console.WriteLine("Invalid choice. Please try again.");
+                            Console.Clear();
                             break;
                     }
 
@@ -66,6 +65,9 @@ namespace Bank.Model
             else
             {
                 Console.WriteLine("Invalid account number or password. Please try again.");
+                Console.WriteLine("Press any key to return to Main Menu");
+                Console.ReadKey();
+                Console.Clear();
             }
         }
 

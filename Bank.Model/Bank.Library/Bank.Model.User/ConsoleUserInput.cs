@@ -1,40 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
-namespace Bank.Model
+
+namespace Bank.Model.User
 {
     public static class ConsoleUserInput
     {
-        public static int GetChoice()
-        {
-            int choice = 0;
-            bool isValidChoice = false;
-
-            while (!isValidChoice)
-            {
-                Console.Write("Enter your choice: ");
-                string input = Console.ReadLine();
-
-                if (!int.TryParse(input, out choice))
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid integer choice.");
-                }
-                else if (choice < 1 || choice > 3)
-                {
-                    Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
-                }
-                else
-                {
-                    isValidChoice = true;
-                }
-            }
-
-            return choice;
-        }
-
         public static int GetChoice(int max)
         {
             int choice = 0;
@@ -62,22 +33,49 @@ namespace Bank.Model
             return choice;
         }
 
+        public static int GetChoice(int min, int max)
+        {
+            int choice = 0;
+            bool isValidChoice = false;
+
+            while (!isValidChoice)
+            {
+                Console.Write("Enter your choice: ");
+                string input = Console.ReadLine();
+
+                if (!int.TryParse(input, out choice))
+                {
+                    Console.WriteLine("Invalid input.\nPlease enter a valid integer choice.");
+                }
+                else if (choice < min || choice > max)
+                {
+                    Console.WriteLine($"Invalid choice.\nPlease enter a number between {min} and {max}.");
+                }
+                else
+                {
+                    isValidChoice = true;
+                }
+            }
+
+            return choice;
+        }
+
         public static string GetAccountNumber()
         {
             string accountNumber = "";
 
             while (string.IsNullOrEmpty(accountNumber) || accountNumber.Length != 10)
             {
-                Console.Write("Enter account number (must be 10 characters): ");
+                Console.Write("Enter account number\n(must be 10 characters): ");
                 accountNumber = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(accountNumber))
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid account number.");
+                    Console.WriteLine("Invalid input.\nPlease enter a valid account number.");
                 }
                 else if (accountNumber.Length != 10)
                 {
-                    Console.WriteLine("Invalid account number length. It must be exactly 10 characters.");
+                    Console.WriteLine("Invalid account number length.\nIt must be exactly 10 characters.");
                 }
             }
 
@@ -90,16 +88,16 @@ namespace Bank.Model
 
             while (string.IsNullOrEmpty(password) || !IsValidPassword(password))
             {
-                Console.Write("Enter your password (must contain at least 8 characters and include both letters and numbers): ");
+                Console.Write("Enter your password\n(must contain at least 8 characters,\nstart with an uppercase letter, and\ninclude both a number and a special character): ");
                 password = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(password))
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid password.");
+                    Console.WriteLine("Invalid input.\nPlease enter a valid password.");
                 }
                 else if (!IsValidPassword(password))
                 {
-                    Console.WriteLine("Invalid password. It must contain at least 8 characters and include both letters and numbers.");
+                    Console.WriteLine("Invalid password.\nIt must contain at least 8 characters,\nstart with an uppercase letter, and \ninclude both a number and a special character.");
                 }
             }
 
@@ -108,34 +106,11 @@ namespace Bank.Model
 
         public static bool IsValidPassword(string password)
         {
-            if (password.Length < 8)
-            {
-                return false;
-            }
+            // Password validation regular expression pattern
+            string pattern = @"^(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$";
 
-            bool hasLetter = false;
-            bool hasNumber = false;
-
-            foreach (char c in password)
-            {
-                if (char.IsLetter(c))
-                {
-                    hasLetter = true;
-                }
-                else if (char.IsDigit(c))
-                {
-                    hasNumber = true;
-                }
-
-                if (hasLetter && hasNumber)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Regex.IsMatch(password, pattern);
         }
-
         public static string GetFullName()
         {
             string fullName = "";
@@ -147,11 +122,11 @@ namespace Bank.Model
 
                 if (string.IsNullOrEmpty(fullName))
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid full name.");
+                    Console.WriteLine("Invalid input.\nPlease enter a valid full name.");
                 }
                 else if (!IsValidFullName(fullName))
                 {
-                    Console.WriteLine("Invalid full name. It must contain at least two words.");
+                    Console.WriteLine("Invalid full name.\nIt must contain at least two words.");
                 }
             }
 
@@ -177,7 +152,7 @@ namespace Bank.Model
 
                 if (!decimal.TryParse(input, out number))
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid decimal number.");
+                    Console.WriteLine("Invalid input.\nPlease enter a valid decimal number.");
                 }
                 else
                 {
@@ -188,8 +163,31 @@ namespace Bank.Model
             return number;
         }
 
+        public static string GetEmail()
+        {
+            string email = "";
 
+            while (!IsValidEmail(email))
+            {
+                Console.Write("Enter your email address: ");
+                email = Console.ReadLine();
 
+                if (!IsValidEmail(email))
+                {
+                    Console.WriteLine("Invalid email address.\nPlease enter a valid email address.");
+                }
+            }
+
+            return email;
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            // Email validation regular expression pattern
+            string pattern = @"^[a-zA-Z0-9_.+-]+@(gmail\.com|yahoo\.com|outlook\.com)$";
+
+            return Regex.IsMatch(email, pattern);
+        }
 
     }
 }
