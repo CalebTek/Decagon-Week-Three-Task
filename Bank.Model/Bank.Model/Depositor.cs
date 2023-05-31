@@ -12,8 +12,7 @@ namespace Bank.Model
         {
             Console.WriteLine("DEPOSIT\n");
 
-            Console.Write("Enter the deposit amount: ");
-            decimal amount = Convert.ToDecimal(Console.ReadLine());
+            decimal amount = ConsoleUserInput.GetAmount("Enter the deposit amount: ");
 
             account.Balance += amount;
 

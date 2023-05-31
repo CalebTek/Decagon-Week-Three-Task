@@ -15,12 +15,11 @@ namespace Bank.Model
             int choice;
             do
             {
-                Console.WriteLine("1. Create Account");
-                Console.WriteLine("2. Login");
-                Console.WriteLine("3. Exit");
+                DisplayUI.DiplayMenu();
 
-                Console.Write("Enter your choice: ");
-                choice = Convert.ToInt32(Console.ReadLine());
+                //Console.Write("Enter your choice: ");
+                //choice = Convert.ToInt32(Console.ReadLine());
+                choice = ConsoleUserInput.GetChoice();
 
                 switch (choice)
                 {

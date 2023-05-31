@@ -12,11 +12,13 @@ namespace Bank.Model
         {
             Console.WriteLine("LOGIN\n");
 
-            Console.Write("Enter your account number: ");
-            string accountNumber = Console.ReadLine();
+            //Console.Write("Enter your account number: ");
+            //string accountNumber = Console.ReadLine();
+            string accountNumber = ConsoleUserInput.GetAccountNumber();
 
-            Console.Write("Enter your password: ");
-            string password = Console.ReadLine();
+            //Console.Write("Enter your password: ");
+            //string password = Console.ReadLine();
+            string password = ConsoleUserInput.GetPassword();
 
             // Find the account by account number and password
             Account account = bank.GetAccounts().Find(a => a.AccountNumber == accountNumber && a.Password == password);
@@ -28,17 +30,9 @@ namespace Bank.Model
                 int choice;
                 do
                 {
-                    Console.WriteLine("\nMAIN MENU");
-                    Console.WriteLine("1. Deposit");
-                    Console.WriteLine("2. Withdraw");
-                    Console.WriteLine("3. Transfer");
-                    Console.WriteLine("4. Print Statement");
-                    Console.WriteLine("5. Display Balance");
-                    Console.WriteLine("6. Set Up Another Account");
-                    Console.WriteLine("7. Exit");
+                    DisplayUI.DiplayUserMenu();
 
-                    Console.Write("Enter your choice: ");
-                    choice = Convert.ToInt32(Console.ReadLine());
+                    choice = ConsoleUserInput.GetChoice(7);
 
                     switch (choice)
                     {

@@ -12,21 +12,29 @@ namespace Bank.Model
         {
             Console.WriteLine("CREATE ACCOUNT\n");
 
-            Console.Write("Enter your full name: ");
-            string fullName = Console.ReadLine();
+            string fullName = ConsoleUserInput.GetFullName();
 
-            Console.Write("Enter your password: ");
-            string password = Console.ReadLine();
+            string password = ConsoleUserInput.GetPassword();
 
             // Generate a random account number
             Random random = new Random();
             string accountNumber = random.Next(1000000000, 2000000000).ToString();
 
-            Console.Write("Enter your account type: ");
-            string accountType = Console.ReadLine();
+            DisplayUI.AccountType();
+            int choice = ConsoleUserInput.GetChoice(2);
+            string accountType = "";
+            switch(choice)
+            {
+                case 1:
+                    accountType = "Savings";
+                    break;
+                case 2:
+                    accountType = "Current";
+                    break;
 
-            Console.Write("Enter your initial balance: ");
-            decimal balance = Convert.ToDecimal(Console.ReadLine());
+            }
+
+            decimal balance = ConsoleUserInput.GetAmount("Enter your initial balance: ");
 
             Account account = new Account
             {
@@ -44,11 +52,5 @@ namespace Bank.Model
             // Display the created account details
             account.PrintAccountDetails();
         }
-
-
-
-
-
-
     }
 }

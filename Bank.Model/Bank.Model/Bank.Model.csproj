@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AppMessages.cs" />
     <Compile Include="Bank.cs" />
+    <Compile Include="ConsoleUserInput.cs" />
     <Compile Include="Depositor.cs" />
+    <Compile Include="DisplayUI.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="OpenAccount.cs" />
     <Compile Include="Printer.cs" />
