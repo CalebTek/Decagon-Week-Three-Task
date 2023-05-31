@@ -50,6 +50,15 @@ namespace Bank.Model
             bank.AddAccount(account);
 
             Console.WriteLine("Account created successfully!");
+            // Add the transfer transaction to the sender's transaction history
+            account.Transactions.Add(new Transaction
+            {
+                Date = DateTime.Now,
+                Description = $"Initial Deposit",
+                Amount = balance,
+                Balance = account.Balance
+            });
+
 
             // Display the created account details
             account.PrintAccountDetails();
