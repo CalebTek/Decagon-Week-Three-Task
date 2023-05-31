@@ -17,8 +17,6 @@ namespace Bank.Model
             {
                 DisplayUI.DiplayMenu();
 
-                //Console.Write("Enter your choice: ");
-                //choice = Convert.ToInt32(Console.ReadLine());
                 choice = ConsoleUserInput.GetChoice();
 
                 switch (choice)

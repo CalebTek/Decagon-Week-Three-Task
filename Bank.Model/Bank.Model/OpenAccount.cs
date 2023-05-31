@@ -10,6 +10,7 @@ namespace Bank.Model
     {
         public static void CreateAccount(this Bank bank)
         {
+            Console.Clear();
             Console.WriteLine("CREATE ACCOUNT\n");
 
             string fullName = ConsoleUserInput.GetFullName();

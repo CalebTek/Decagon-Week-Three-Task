@@ -10,10 +10,11 @@ namespace Bank.Model
     {
         public static void Transfer(this Account senderAccount, Bank bank)
         {
+            Console.Clear();
             Console.WriteLine("TRANSFER\n");
 
-            Console.Write("Enter the recipient's account number: ");
-            string recipientAccountNumber = Console.ReadLine();
+            Console.WriteLine("Recipient's: ");
+            string recipientAccountNumber = ConsoleUserInput.GetAccountNumber();
 
             Account recipientAccount = bank.GetAccounts().Find(a => a.AccountNumber == recipientAccountNumber);
 
@@ -23,8 +24,7 @@ namespace Bank.Model
             }
             else
             {
-                Console.Write("Enter the transfer amount: ");
-                decimal amount = Convert.ToDecimal(Console.ReadLine());
+                decimal amount = ConsoleUserInput.GetAmount("Enter the transfer amount: ");
 
                 if (amount > senderAccount.Balance)
                 {

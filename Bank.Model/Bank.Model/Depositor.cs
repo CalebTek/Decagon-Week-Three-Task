@@ -10,6 +10,7 @@ namespace Bank.Model
     {
         public static void Deposit(this Account account)
         {
+            Console.Clear();
             Console.WriteLine("DEPOSIT\n");
 
             decimal amount = ConsoleUserInput.GetAmount("Enter the deposit amount: ");

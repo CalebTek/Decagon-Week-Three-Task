@@ -10,10 +10,10 @@ namespace Bank.Model
     {
         public static void Withdraw(this Account account)
         {
+            Console.Clear();
             Console.WriteLine("WITHDRAW\n");
 
-            Console.Write("Enter the withdrawal amount: ");
-            decimal amount = Convert.ToDecimal(Console.ReadLine());
+            decimal amount = ConsoleUserInput.GetAmount("Enter the withdrawal amount: ");
 
             if (amount > account.Balance)
             {

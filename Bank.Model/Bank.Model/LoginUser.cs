@@ -10,14 +10,11 @@ namespace Bank.Model
     {
         public static void Login(this Bank bank)
         {
+            Console.Clear();
             Console.WriteLine("LOGIN\n");
 
-            //Console.Write("Enter your account number: ");
-            //string accountNumber = Console.ReadLine();
             string accountNumber = ConsoleUserInput.GetAccountNumber();
 
-            //Console.Write("Enter your password: ");
-            //string password = Console.ReadLine();
             string password = ConsoleUserInput.GetPassword();
 
             // Find the account by account number and password
@@ -56,6 +53,7 @@ namespace Bank.Model
                             break;
                         case 7:
                             Console.WriteLine("Exiting...");
+                            Console.Clear();
                             break;
                         default:
                             Console.WriteLine("Invalid choice. Please try again.");

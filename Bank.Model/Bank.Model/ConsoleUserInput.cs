@@ -68,7 +68,7 @@ namespace Bank.Model
 
             while (string.IsNullOrEmpty(accountNumber) || accountNumber.Length != 10)
             {
-                Console.Write("Enter your account number (must be 10 characters): ");
+                Console.Write("Enter account number (must be 10 characters): ");
                 accountNumber = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(accountNumber))
