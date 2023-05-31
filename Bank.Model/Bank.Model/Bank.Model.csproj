@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{785AC10F-B1DF-450F-BC33-89CC6DEE409D}</ProjectGuid>
+    <ProjectGuid>{84FC5FD1-B41E-4D0C-9E83-A0DA48BAF8A5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Bank.Model</RootNamespace>
     <AssemblyName>Bank.Model</AssemblyName>
@@ -43,8 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="Bank.cs" />
+    <Compile Include="Depositor.cs" />
+    <Compile Include="LoginUser.cs" />
+    <Compile Include="OpenAccount.cs" />
+    <Compile Include="Printer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="Transfers.cs" />
+    <Compile Include="Withdrawal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
